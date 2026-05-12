@@ -49,6 +49,7 @@ src/zlib.lua      Pure Lua zlib inflate and deflate
 src/png.lua       Pure Lua PNG decoder and encoder
 src/rttex.lua     RTTEX/RTPACK pack and unpack logic
 src/items_dat.lua Pure Lua items.dat parser
+src/cbor.lua      Vendored Lua-CBOR decoder/encoder
 src/world_dat.lua Pure Lua world.dat parser
 src/inspect.lua   Human-readable CLI output helpers
 src/cli.lua       Command-line interface
@@ -73,3 +74,7 @@ lua5.4 dist/rttex_tools.lua items items.dat 0
 ## Notes
 
 The PNG decoder supports 8-bit PNG color types 0, 2, 3, 4, and 6. Output PNG files are encoded as RGBA.
+
+## Vendored Code
+
+`src/cbor.lua` is Lua-CBOR by Kim Alvefur, licensed under the MIT license. The license text is included in `licenses/lua-cbor-MIT.txt`.

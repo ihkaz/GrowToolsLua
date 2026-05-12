@@ -1,4 +1,5 @@
 local Binary = require("src.binary")
+local Cbor = require("src.cbor")
 
 local WorldDat = {}
 
@@ -495,6 +496,7 @@ local function parse_tile(reader, world, index)
     if CBOR_FOREGROUND_IDS[tile.foreground_item_id] then
         local cbor_size = read_u32(reader)
         tile.cbor_raw = read_bytes(reader, cbor_size)
+        tile.cbor = Cbor.decode(tile.cbor_raw)
     end
     return tile
 end
