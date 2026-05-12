@@ -28,24 +28,35 @@ lua5.4 main.lua world-tile world.dat 0 0
 ### Module
 
 ```lua
-local growtools = require("main")
+local GTLua = require("main")
 
-local rtpack_bytes = growtools.RTTEXPack("input.png")
-local png_bytes = growtools.RTTEXUnpack("input.rttex")
+local rtpack_bytes = GTLua.RTTEXPack("input.png")
+local png_bytes = GTLua.RTTEXUnpack("input.rttex")
 
-local ItemsDat = require("src.items_dat")
+local ItemsDat = require("GTLua.items_dat")
 local items = ItemsDat.load_file("items.dat")
 local item = ItemsDat.get_item(items, 0)
 
-local WorldDat = require("src.world_dat")
+local WorldDat = require("GTLua.world_dat")
 local world = WorldDat.load_file("world.dat")
 local tile = WorldDat.get_tile(world, 0, 0)
+```
+
+You can also require `main` only to register the public preload names:
+
+```lua
+require("main")
+
+local DialogBuilder = require("GTLua.dialog_builder")
+local dialog = DialogBuilder.new("`o"):add_button("ok", "OK"):to_string()
 ```
 
 ### Dialog Builder
 
 ```lua
-local DialogBuilder = require("src.dialog_builder")
+require("main")
+
+local DialogBuilder = require("GTLua.dialog_builder")
 
 local dialog = DialogBuilder
     .new("`o")
@@ -119,3 +130,14 @@ local packed = GTLua.RTTEXPack("input.png")
 ## Vendored Code
 
 `src/cbor.lua` is Lua-CBOR by Kim Alvefur, licensed under the MIT license. The license text is included in `licenses/lua-cbor-MIT.txt`.
+
+## References
+
+- `DialogBuilder` API is based on `Dialog.h` from Growhoshi by LyNnz01:
+  https://raw.githubusercontent.com/LyNnz01/Growhoshi/589fa8c5ae96a4ffdb33ca5bcf6603752be45c50/Server.sh/Dialog.h
+- `items.dat` parser layout references `CLOEI/gtitem-r`:
+  https://github.com/CLOEI/gtitem-r
+- `world.dat` parser layout references `CLOEI/gtworld-r`:
+  https://github.com/CLOEI/gtworld-r
+- Lua-CBOR is vendored from Kim Alvefur's Lua-CBOR:
+  https://www.zash.se/lua-cbor.html
