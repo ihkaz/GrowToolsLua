@@ -7,6 +7,7 @@ local MODULES = {
     { public_name = "GTLua.items_dat", internal_name = "src.items_dat", path = "src/items_dat.lua" },
     { public_name = "GTLua.cbor", internal_name = "src.cbor", path = "src/cbor.lua" },
     { public_name = "GTLua.world_dat", internal_name = "src.world_dat", path = "src/world_dat.lua" },
+    { public_name = "GTLua.dialog_builder", internal_name = "src.dialog_builder", path = "src/dialog_builder.lua" },
     { public_name = "GTLua.inspect", internal_name = "src.inspect", path = "src/inspect.lua" },
     { public_name = "GTLua.cli", internal_name = "src.cli", path = "src/cli.lua" },
 }
@@ -60,6 +61,7 @@ local GTLua = {
     items_dat = require("GTLua.items_dat"),
     cbor = require("GTLua.cbor"),
     world_dat = require("GTLua.world_dat"),
+    dialog_builder = require("GTLua.dialog_builder"),
 }
 
 GTLua.RTTEXPack = GTLua.rttex.RTTEXPack

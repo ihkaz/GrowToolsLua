@@ -9,6 +9,7 @@ Pure Lua 5.4 tools for Growtopia assets. The project includes RTTEX/RTPACK conve
 - Parse Growtopia `items.dat` files.
 - Parse Growtopia world dumps / `world.dat` files.
 - Decode world tile CBOR payloads for supported tile data.
+- Build Growtopia dialog strings with `DialogBuilder`.
 - Build a single-file bundle for distribution.
 
 ## Usage
@@ -41,6 +42,23 @@ local world = WorldDat.load_file("world.dat")
 local tile = WorldDat.get_tile(world, 0, 0)
 ```
 
+### Dialog Builder
+
+```lua
+local DialogBuilder = require("src.dialog_builder")
+
+local dialog = DialogBuilder
+    .new("`o")
+    :add_label_icon(true, 242, "`wExample Dialog``")
+    :add_spacer(false)
+    :add_textbox("Hello from GrowToolsLua.")
+    :add_text_input(32, "name", "Name:", "")
+    :add_checkbox(true, "enabled", "Enabled")
+    :end_dialog("example", "Cancel", "OK")
+    :add_quick_exit()
+    :to_string()
+```
+
 ## Project Structure
 
 ```text
@@ -53,6 +71,7 @@ src/rttex.lua     RTTEX/RTPACK pack and unpack logic
 src/items_dat.lua Pure Lua items.dat parser
 src/cbor.lua      Vendored Lua-CBOR decoder/encoder
 src/world_dat.lua Pure Lua world.dat parser
+src/dialog_builder.lua Growtopia dialog string builder
 src/inspect.lua   Human-readable CLI output helpers
 src/cli.lua       Command-line interface
 ```
@@ -84,6 +103,7 @@ local rttex = require("GTLua.rttex")
 local items_dat = require("GTLua.items_dat")
 local world_dat = require("GTLua.world_dat")
 local cbor = require("GTLua.cbor")
+local DialogBuilder = require("GTLua.dialog_builder")
 
 local packed = GTLua.RTTEXPack("input.png")
 ```
