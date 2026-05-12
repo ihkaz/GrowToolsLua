@@ -32,6 +32,13 @@ lua5.4 main.lua items items.dat
 lua5.4 main.lua items items.dat 0
 ```
 
+Inspect a world dump:
+
+```bash
+lua5.4 main.lua world world.dat
+lua5.4 main.lua world-tile world.dat 0 0
+```
+
 ## Project Structure
 
 ```text
@@ -42,6 +49,7 @@ src/zlib.lua      Pure Lua zlib inflate and deflate
 src/png.lua       Pure Lua PNG decoder and encoder
 src/rttex.lua     RTTEX/RTPACK pack and unpack logic
 src/items_dat.lua Pure Lua items.dat parser
+src/world_dat.lua Pure Lua world.dat parser
 src/inspect.lua   Human-readable CLI output helpers
 src/cli.lua       Command-line interface
 ```

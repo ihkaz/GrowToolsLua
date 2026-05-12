@@ -37,4 +37,32 @@ function Inspect.print_item(item)
     print("flags_bits = " .. item.flags.bits)
 end
 
+function Inspect.print_world(world)
+    print("name = " .. string.format("%q", world.name))
+    print("version = " .. world.version)
+    print("flags = " .. world.flags)
+    print("width = " .. world.width)
+    print("height = " .. world.height)
+    print("tile_count = " .. world.tile_count)
+    print("dropped_items_count = " .. world.dropped.items_count)
+    print("last_dropped_item_uid = " .. world.dropped.last_dropped_item_uid)
+    print("base_weather = " .. world.base_weather.name .. " (" .. world.base_weather.id .. ")")
+    print("current_weather = " .. world.current_weather.name .. " (" .. world.current_weather.id .. ")")
+    print("bytes_read = " .. world.bytes_read)
+end
+
+function Inspect.print_tile(tile)
+    print("index = " .. tile.index)
+    print("x = " .. tile.x)
+    print("y = " .. tile.y)
+    print("foreground_item_id = " .. tile.foreground_item_id)
+    print("background_item_id = " .. tile.background_item_id)
+    print("parent_block_index = " .. tile.parent_block_index)
+    print("flags_number = " .. tile.flags_number)
+    print("tile_type = " .. tile.tile_type.type)
+    if tile.extra_tile_type ~= nil then
+        print("extra_tile_type = " .. tile.extra_tile_type)
+    end
+end
+
 return Inspect

@@ -5,6 +5,7 @@ local MODULES = {
     { name = "src.png", path = "src/png.lua" },
     { name = "src.rttex", path = "src/rttex.lua" },
     { name = "src.items_dat", path = "src/items_dat.lua" },
+    { name = "src.world_dat", path = "src/world_dat.lua" },
     { name = "src.inspect", path = "src/inspect.lua" },
     { name = "src.cli", path = "src/cli.lua" },
 }
