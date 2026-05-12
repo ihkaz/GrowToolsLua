@@ -1,0 +1,7 @@
+*.luac
+*.tmp
+
+/dist/
+/samples/
+
+.DS_Store
